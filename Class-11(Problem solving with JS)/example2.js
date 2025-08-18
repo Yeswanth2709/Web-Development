@@ -6,8 +6,8 @@
 
 function reverseWords(sentence) {
     // Write code here
-    const arr=sentence.split(" ");
-    return arr.reverse().join(" ");
+    let words=sentence.split(" ");
+    return words.reverse().join(" ");
     
   }
   

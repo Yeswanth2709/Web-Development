@@ -14,12 +14,13 @@ function CelToFah(celsius) {
   function convertTemperature(temp, unit) {
     // Write code here
     if(unit==="C"){
-        return CelToFah(temp)+"F";
-    }else if(unit==="F"){
-        return FahToCel(temp)+"C";
+      return CelToFah(temp)+"F";
+    }else if(unit === "F"){
+      return FahToCel(temp)+"C";
     }else{
-        return 'Invalid Unit, please enter C or F'
+      return "Provide correct units";
     }
+    
   }
   
   console.log(convertTemperature(100, "C")); // "212F"

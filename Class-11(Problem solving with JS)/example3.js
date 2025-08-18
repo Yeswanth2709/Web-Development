@@ -21,21 +21,22 @@ const students = [
 
 function categorizeStudents(studentList) {
     // Write your code here
-    const ans={
+    const grades={
         A:[],
         B:[],
         C:[]
-    };
-    for(let student of studentList){
+    }
+    for(let i=0;i<studentList.length;i++){
+        let student=studentList[i];
         if(student.score>=90){
-            ans.A.push(student.name);
+            grades.A.push(student.name);
         }else if(student.score>=75){
-            ans.B.push(student.name);
+            grades.B.push(student.name);
         }else{
-            ans.C.push(student.name);
+            grades.C.push(student.name);
         }
     }
-    return ans;
+    return grades;
   }
   
   console.log(categorizeStudents(students));
