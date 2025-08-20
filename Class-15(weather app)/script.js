@@ -11,3 +11,11 @@ console.log(jsonToys);
 //json parse to convert json to js object
 let toysObject=JSON.parse(jsonToys);
 console.log(toysObject);
+
+let car={
+    name:'Toyota',
+    model:2014,
+    color:'white'
+}
+
+console.log(JSON.stringify(car));

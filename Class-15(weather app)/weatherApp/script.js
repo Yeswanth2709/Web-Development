@@ -5,16 +5,14 @@ const locationField=document.querySelector('.location');
 const datetime=document.querySelector('.datetime');
 const iconField=document.querySelector('.weather-icon img');
 const conditionField=document.querySelector('.condition');
-// const temperatureField=document.querySelector('.temp');
-// const temperatureField=document.querySelector('.temp');
-// const temperatureField=document.querySelector('.temp');
-// const temperatureField=document.querySelector('.temp');
+const weatherDetailsItems=document.querySelectorAll('.detail-item');
 let target='Mumbai';
 form.addEventListener('submit',search);
 function search(e){
     e.preventDefault();
     target=searchField.value;
     fetchData(target);
+    searchField.value="";
 }
 
 async function fetchData(target){
@@ -26,10 +24,28 @@ async function fetchData(target){
     let localTime=data.location.localtime;
     let condition=data.current.condition.text;
     let icon=data.current.condition.icon;
-    let feelsLike=data.current.feelslike_c;
     temperatureField.innerText=currTemp;
     locationField.innerText=cityName;
     datetime.innerText=localTime;
     iconField.src=icon;
     conditionField.innerText=condition;
+    let weatherDetails={
+        "Feels like":`${data.current.feelslike_c} °`,
+        "Humidity":`${data.current.humidity} %`,
+        "Wind":`${data.current.wind_kph} km/h`,
+        "Visibility":`${data.current.vis_km} km`,
+        "UV Index":`${data.current.uv}`,
+        "Pressure":`${data.current.pressure_mb} hpa`
+    }
+
+    for(let i=0;i<weatherDetailsItems.length;i++){
+        let label=weatherDetailsItems[i].querySelector('.label').innerText;
+        let value=weatherDetailsItems[i].querySelector('.value');
+        
+        if(weatherDetails[label]){
+            
+            value.innerText=weatherDetails[label];
+        }
+    }
+
 }
